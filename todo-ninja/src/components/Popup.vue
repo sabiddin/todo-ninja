@@ -37,7 +37,7 @@ export default Vue.extend({
     },
     methods:{
         submit(): void{
-            if(this.$refs.form.validate()){
+            if(this.form.validate()){
             console.log(this.title);
             console.log(this.content);
             this.dialog = false;
@@ -49,6 +49,9 @@ export default Vue.extend({
     computed:{
         formattedDate(): string{
              return this.due ? format(this.due, 'MMM Do YYYY') : '';
+        },
+        form(): any{
+            return this.$refs.form;
         }
     }
     
